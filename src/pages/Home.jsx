@@ -10,6 +10,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import About from "./About";
 import Projects from "./Projects";
+import CV from "./CV";
+import Contact from "./Contact";
 
 const Home = () => {
   const [isDragging, setIsDragging] = useState(false);
@@ -44,21 +46,21 @@ const Home = () => {
                 swiper.slideTo(1);
               }}
             >
-              <span className="font-bold">Projects</span>
-            </Button>
-            <Button
-              onClick={() => {
-                swiper.slideTo(0);
-              }}
-            >
               <span className="font-bold">CV</span>
             </Button>
             <Button
               onClick={() => {
-                swiper.slideTo(0);
+                swiper.slideTo(2);
               }}
             >
               <span className="font-bold">Contact Me</span>
+            </Button>
+            <Button
+              onClick={() => {
+                swiper.slideTo(2);
+              }}
+            >
+              <span className="font-bold">Projects</span>
             </Button>
           </ButtonGroup>
         </div>
@@ -74,7 +76,10 @@ const Home = () => {
               <About />
             </SwiperSlide>
             <SwiperSlide>
-              <Projects />
+              <CV />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Contact />
             </SwiperSlide>
           </Swiper>
         </div>
