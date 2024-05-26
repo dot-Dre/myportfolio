@@ -2,17 +2,14 @@ import React, { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import Cloud from "../models/Cloud";
 import Loading from "../components/Loading";
-import Typewriter from "typewriter-effect";
 
-import { FaLinkedin } from "react-icons/fa";
-import { FaSquareGithub } from "react-icons/fa6";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
-import { Typography } from "@mui/material";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import About from "./About";
+import Projects from "./Projects";
 
 const Home = () => {
   const [isDragging, setIsDragging] = useState(false);
@@ -24,6 +21,8 @@ const Home = () => {
     setIsDragging(false);
   };
 
+  const [swiper, setSwiper] = useState(null);
+
   return (
     <section className="w-full h-screen relative">
       <Suspense fallback={<Loading />}>
@@ -33,24 +32,50 @@ const Home = () => {
             aria-label="Basic button group"
             size="large"
           >
-            <Button>
+            <Button
+              onClick={() => {
+                swiper.slideTo(0);
+              }}
+            >
+              <span className="font-bold">About me</span>
+            </Button>
+            <Button
+              onClick={() => {
+                swiper.slideTo(1);
+              }}
+            >
               <span className="font-bold">Projects</span>
             </Button>
-            <Button>
+            <Button
+              onClick={() => {
+                swiper.slideTo(0);
+              }}
+            >
               <span className="font-bold">CV</span>
             </Button>
-            <Button>
+            <Button
+              onClick={() => {
+                swiper.slideTo(0);
+              }}
+            >
               <span className="font-bold">Contact Me</span>
             </Button>
           </ButtonGroup>
         </div>
 
         <div className="w-1/3 h-screen absolute left-12 top-6 right-0 z-10 flex flex-col items-start pl-10">
-          <Swiper direction="vertical" spaceBetween={50} slidesPerView={1}>
+          <Swiper
+            direction="vertical"
+            spaceBetween={50}
+            slidesPerView={1}
+            onSwiper={setSwiper}
+          >
             <SwiperSlide>
               <About />
             </SwiperSlide>
-            <SwiperSlide>hello1</SwiperSlide>
+            <SwiperSlide>
+              <Projects />
+            </SwiperSlide>
           </Swiper>
         </div>
         <div
