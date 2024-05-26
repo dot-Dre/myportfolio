@@ -18,7 +18,7 @@ const Cloud = (props) => {
       screenScale = [1, 1, 1];
     }
 
-    screenScale = [0.5, 0.5, 0.5];
+    screenScale = [1, 1, 1];
 
     return screenScale;
   };
@@ -29,7 +29,7 @@ const Cloud = (props) => {
   useFrame(({ clock }) => {
     if (cloudRef.current) {
       // Continuous rotation
-      cloudRef.current.rotation.y += 0.001;
+      cloudRef.current.rotation.y += 0;
       // Wiggle effect
       const time = clock.getElapsedTime();
       cloudRef.current.position.y = Math.sin(time * 2) * 0.5; // Adjust wiggle amplitude and speed as needed
@@ -39,9 +39,9 @@ const Cloud = (props) => {
   return (
     <>
       <a.group ref={cloudRef} {...props} position={[0, 0, -12]}>
-        <a.group rotation={[-Math.PI / 2, 0, 0]} scale={0.036}>
+        <a.group rotation={[-Math.PI / 2, 0, 0]} scale={0.056}>
           <mesh
-            position={[0, 0, 0]} // Center the model within its group
+            position={[300, 0,-70]} // Center the model within its group
             scale={screenScale}
             geometry={nodes.defaultMaterial.geometry}
             material={materials.base1}
@@ -49,7 +49,8 @@ const Cloud = (props) => {
           />
         </a.group>
       </a.group>
-      <OrbitControls enableZoom={true} zoomSpeed={5} />
+      {/* <OrbitControls enableZoom={true} zoomSpeed={5} /> */}
+      <OrbitControls />
     </>
   );
 };
