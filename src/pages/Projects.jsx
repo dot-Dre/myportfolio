@@ -12,8 +12,8 @@ const Projects = () => {
   return (
     <>
       <section className="projectcanvas w-full h-screen relative">
-        <div className="absolute left-1/2 top-1/5 transform -translate-x-1/2 z-10">
-          <div className="text-8xl pt-28 font-bold text-black flex justify-center items-center">
+        <div className="absolute left-1/2 top-1/5 transform -translate-x-1/2">
+          <div className="text-8xl pt-24 font-bold text-black flex justify-center items-center">
             <Typewriter
               onInit={(typewriter) => {
                 typewriter
@@ -24,7 +24,7 @@ const Projects = () => {
               }}
             />
           </div>
-          <div className="pt-20">
+          <div className="pt-16">
             {/* <div className="w-full h-full">
               <Carousel className="no-shadow" axis="horizontal" showArrows={true} showStatus={false} showThumbs={false} showIndicators={false} infiniteLoop={true}>
                 <ProjectCards tags={["Java ♨️", "Processing ⚙️"]} blurb="bru r" name={"When Pigs Fly"} img={proj1}/>
@@ -40,6 +40,30 @@ const Projects = () => {
                 img={ProjectDetails.WhenPigsFly.img}
               />
             </div>
+            <div className="pt-10">
+              <ProjectCards
+                tags={ProjectDetails.DungeonGPT.tags}
+                blurb={ProjectDetails.DungeonGPT.blurb}
+                name={ProjectDetails.DungeonGPT.name}
+                img={ProjectDetails.DungeonGPT.img}
+              />
+            </div>
+            <div className="pt-10">
+              <ProjectCards
+                tags={ProjectDetails.BuzzWord.tags}
+                blurb={ProjectDetails.BuzzWord.blurb}
+                name={ProjectDetails.BuzzWord.name}
+                img={ProjectDetails.BuzzWord.img}
+              />
+            </div>
+            <div className="pt-10">
+              <ProjectCards
+                tags={ProjectDetails.Portfolio.tags}
+                blurb={ProjectDetails.Portfolio.blurb}
+                name={ProjectDetails.Portfolio.name}
+                img={ProjectDetails.Portfolio.img}
+              />
+            </div>
           </div>
         </div>
         <Canvas
@@ -51,7 +75,7 @@ const Projects = () => {
             <ambientLight intensity={2} />
             <Cloud
               rot={[-Math.PI / 2, -1, 0]}
-              pos={[-35, -90, -12]}
+              pos={[-41, -95, -14]}
               zoom={false}
             />
             <Cloud
