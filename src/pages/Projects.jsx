@@ -1,4 +1,5 @@
 import React, { Suspense } from "react";
+import { useNavigate } from "react-router-dom";
 import { Canvas } from "@react-three/fiber";
 import { Carousel } from "react-responsive-carousel";
 import Typewriter from "typewriter-effect";
@@ -7,11 +8,35 @@ import Loading from "../components/Loading";
 import Cloud from "../models/Cloud";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Ensure you have this import
 import ProjectDetails from "../projs";
+import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import { motion } from "framer-motion";
 
 const Projects = () => {
+  const navigate = useNavigate();
+
   return (
-    <>
+    <motion.div
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth }}
+    >
       <section className="projectcanvas w-full h-screen relative">
+        <div className="w-1/3 h-1/6 absolute top-20 right-12 z-10 flex flex-col items-end pr-10">
+          <ButtonGroup
+            variant="contained"
+            aria-label="Basic button group"
+            size="large"
+          >
+            <Button
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              <span className="font-bold">Home</span>
+            </Button>
+          </ButtonGroup>
+        </div>
         <div className="absolute left-1/2 top-1/5 transform -translate-x-1/2">
           <div className="text-8xl pt-24 font-bold text-black flex justify-center items-center">
             <Typewriter
@@ -86,7 +111,7 @@ const Projects = () => {
           </Suspense>
         </Canvas>
       </section>
-    </>
+    </motion.div>
   );
 };
 
