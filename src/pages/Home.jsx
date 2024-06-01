@@ -1,4 +1,5 @@
 import React, { Suspense, useState } from "react";
+import { useNavigate } from "react-router-dom"
 import { Canvas } from "@react-three/fiber";
 import Cloud from "../models/Cloud";
 import Loading from "../components/Loading";
@@ -9,11 +10,12 @@ import ButtonGroup from "@mui/material/ButtonGroup";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import About from "./About";
-import Projects from "./Projects";
 import CV from "./CV";
 import Contact from "./Contact";
 
 const Home = () => {
+  const navigate = useNavigate()
+
   const [isDragging, setIsDragging] = useState(false);
   const handleMouseDown = () => {
     setIsDragging(true);
@@ -57,7 +59,7 @@ const Home = () => {
             </Button>
             <Button
               onClick={() => {
-                swiper.slideTo(2);
+                navigate('/Projects')
               }}
             >
               <span className="font-bold">Projects</span>
@@ -96,7 +98,7 @@ const Home = () => {
             <Suspense fallback={<Loading />}>
               <directionalLight position={[1, 1, 1]} intensity={5} />
               <ambientLight intensity={2} />
-              <Cloud />
+              <Cloud pos={[0, 0, -12]} zoom={true}/>
             </Suspense>
           </Canvas>
         </div>
