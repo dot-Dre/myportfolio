@@ -1,38 +1,19 @@
-import Typewriter from "typewriter-effect";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import ProjectCards from "../components/ProjectCard";
-
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
+import { Carousel } from "react-responsive-carousel";
+import Typewriter from "typewriter-effect";
+import ProjectCards from "../components/ProjectCard";
 import Loading from "../components/Loading";
 import Cloud from "../models/Cloud";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // Ensure you have this import
+import ProjectDetails from "../projs";
 
 const Projects = () => {
-  const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 3000 },
-      items: 1,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 1,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 1,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
-  };
-
   return (
     <>
-      <section className="w-full h-screen relative">
-        <div className="absolute left-1/2 top-1/3 transform -translate-x-1/2 -translate-y-1/2 z-10">
-          <div className="text-8xl pt-12 font-bold text-black flex justify-center items-center">
+      <section className="projectcanvas w-full h-screen relative">
+        <div className="absolute left-1/2 top-1/5 transform -translate-x-1/2 z-10">
+          <div className="text-8xl pt-28 font-bold text-black flex justify-center items-center">
             <Typewriter
               onInit={(typewriter) => {
                 typewriter
@@ -43,13 +24,21 @@ const Projects = () => {
               }}
             />
           </div>
-          <div className="py-12">
-            <div className="max-w-6xl mx-auto px-4">
-              <Carousel responsive={responsive}>
-                <ProjectCards />
-                <ProjectCards />
-                <ProjectCards />
+          <div className="pt-20">
+            {/* <div className="w-full h-full">
+              <Carousel className="no-shadow" axis="horizontal" showArrows={true} showStatus={false} showThumbs={false} showIndicators={false} infiniteLoop={true}>
+                <ProjectCards tags={["Java ♨️", "Processing ⚙️"]} blurb="bru r" name={"When Pigs Fly"} img={proj1}/>
+                <ProjectCards tags={["3", "4"]} blurb="another blurb" name={"Project 2"} img={proj1}/>
+                <ProjectCards tags={["5", "6"]} blurb="yet another blurb" name={"Project 3"} img={proj1}/>
               </Carousel>
+            </div> */}
+            <div className="">
+              <ProjectCards
+                tags={ProjectDetails.WhenPigsFly.tags}
+                blurb={ProjectDetails.WhenPigsFly.blurb}
+                name={ProjectDetails.WhenPigsFly.name}
+                img={ProjectDetails.WhenPigsFly.img}
+              />
             </div>
           </div>
         </div>
@@ -60,8 +49,16 @@ const Projects = () => {
           <Suspense fallback={<Loading />}>
             <directionalLight position={[1, 1, 1]} intensity={5} />
             <ambientLight intensity={2} />
-            <Cloud pos={[-35, -90, -12]} zoom={false}/>
-            <Cloud pos={[35, -90, -12]} zoom={false}/>
+            <Cloud
+              rot={[-Math.PI / 2, -1, 0]}
+              pos={[-35, -90, -12]}
+              zoom={false}
+            />
+            <Cloud
+              rot={[-Math.PI / 2, -1, 0]}
+              pos={[35, -90, -12]}
+              zoom={false}
+            />
           </Suspense>
         </Canvas>
       </section>

@@ -1,31 +1,42 @@
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
+import { styled } from "@mui/material/styles";
+import Grid from "@mui/material/Grid";
+import Chip from "@mui/material/Chip";
+import Stack from "@mui/material/Stack";
 
 import React from "react";
 
-const ProjectCards = ({ img, tags }) => {
+const StyledChip = styled(Chip)(({ theme }) => ({
+  backgroundColor: "#FFFFFF", 
+  color: "#000000",
+  borderRadius: theme.shape.borderRadius * 2,
+  border: `1px solid #afb7bd`
+}));
 
-  const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  }));
-
+const ProjectCards = ({ blurb, name, img, tags }) => {
   return (
-    <div className="bg-gray-200 p-6 rounded-lg shadow-lg text-center">
+    <div className="bg-slate-50 border border-gray-300 p-6 rounded-lg shadow-lg">
       <Grid container spacing={2}>
-        <Grid item md={8}>
-          <Item>xs=6 md=8</Item>
-        </Grid>
-        <Grid item md={4}>
-          <Item>xs=6 md=4</Item>
+        <Grid item md={12}>
+          <div className="h-full w-full overflow-hidden rounded-md">
+            <img className="w-full h-full object-cover" src={img} alt="here" />
+          </div>
         </Grid>
         <Grid item md={12}>
-          <Item>xs=6 md=4</Item>
+          <div className="h-full w-full overflow-hidden text-2xl font-bold rounded-md">
+            {name}
+          </div>
+        </Grid>
+        <Grid item md={12}>
+          <Stack direction="row" spacing={1} className="mt-4">
+            {tags.map((tag, index) => (
+              <StyledChip key={index} label={tag} />
+            ))}
+          </Stack>
+        </Grid>
+        <Grid item md={12}>
+          <div className="bg-white p-4 rounded-md shadow-sm">
+            <p className="text-gray-700">{blurb}</p>
+          </div>
         </Grid>
       </Grid>
     </div>

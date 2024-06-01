@@ -5,7 +5,7 @@ import { a } from '@react-spring/three';
 
 import cloud from './stylized_clouds.glb';
 
-const Cloud = ({props, pos, zoom}) => {
+const Cloud = ({orbit, props, pos, zoom, rot}) => {
   const { nodes, materials } = useGLTF(cloud);
   const cloudRef = useRef();
 
@@ -39,7 +39,7 @@ const Cloud = ({props, pos, zoom}) => {
   return (
     <>
       <a.group ref={cloudRef} {...props} position={pos}>
-        <a.group rotation={[-Math.PI / 2, 0, 0]} scale={0.056}>
+        <a.group rotation={rot} scale={0.056}>
           <mesh
             position={[300, 0,-70]} // Center the model within its group
             scale={screenScale}
@@ -49,8 +49,7 @@ const Cloud = ({props, pos, zoom}) => {
           />
         </a.group>
       </a.group>
-      <OrbitControls enableZoom={zoom} zoomSpeed={5} />
-      {/* <OrbitControls /> */}
+      {orbit ? <OrbitControls enableZoom={zoom} zoomSpeed={5}/> : <></>}
     </>
   );
 };

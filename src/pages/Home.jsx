@@ -98,7 +98,7 @@ const Home = () => {
             <Suspense fallback={<Loading />}>
               <directionalLight position={[1, 1, 1]} intensity={5} />
               <ambientLight intensity={2} />
-              <Cloud pos={[0, 0, -12]} zoom={true}/>
+              <Cloud orbit={true} rot={[-Math.PI / 2, 0, 0]} pos={[0, 0, -12]} zoom={true}/>
             </Suspense>
           </Canvas>
         </div>
