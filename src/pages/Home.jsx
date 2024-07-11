@@ -74,7 +74,7 @@ const Home = () => {
                   zoom={false}
                 />
                 <Cloud
-                  orbit={false}
+                  orbit={true}
                   rot={[-Math.PI / 20, 0, 0]}
                   pos={[12, 0, -10]}
                   zoom={false}
@@ -82,7 +82,7 @@ const Home = () => {
               </Suspense>
             </Canvas>
           </div>
-          <div className="w-1/2 h-screen absolute left-1/2 top-1/4 transform -translate-x-1/2 z-10 flex flex-col items-start pl-10">
+          <div className="w-1/2 h-screen absolute left-1/2 top-24 transform -translate-x-1/2 z-10 flex flex-col items-start pl-10">
             <About />
           </div>
           <div className="absolute bottom-0 right-0 mb-4 mr-4">
