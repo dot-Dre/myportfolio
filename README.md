@@ -1,8 +1,9 @@
-# React + Vite
+# My Personal Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## About
+My name is Andre, and I am a software engineering student at Victoria University of Wellington. This website showcases my projects, skills, and experience in software development. It also provides a way for potential employers and collaborators to get in touch with me.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Built With
+- React: A JavaScript library for building user interfaces.
+- Three.js: A JavaScript library for creating 3D graphics in the browser.
+- Tailwind CSS: A utility-first CSS framework for rapidly building custom user interfaces.
