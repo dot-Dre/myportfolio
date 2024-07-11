@@ -16,7 +16,7 @@ const ProjectDetails = {
     tags: ["React", "SpringBoot"],
     img: dungeongpt,
     blurb:
-      "Web Application which procedurally generates Halloween themed dungeons for table top campaign games. I worked on it alongside a team of 5 other people where I worked on creating the front-end UI and some APIs on the backend.",
+      "A Web Application which procedurally generates Halloween themed dungeons for table top campaign games. I worked on it alongside a team of 5 other people where I worked on creating the front-end UI and some APIs on the backend.",
   },
   BuzzWord: {
     name: "Buzzword 🐝🔤",
@@ -29,7 +29,7 @@ const ProjectDetails = {
     name: "This",
     tags: ["React", "3js"],
     img: port,
-    blurb: "This website! The cool 3d clouds you can see are rendered using 3js."
+    blurb: "This website! The cool 3d clouds you can see are rendered using Three js."
   }
 };
 

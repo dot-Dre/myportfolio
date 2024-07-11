@@ -7,11 +7,14 @@ import Loading from "../components/Loading";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 
-import { Swiper, SwiperSlide } from "swiper/react";
+// import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import About from "./About";
-import CV from "./CV";
-import Contact from "./Contact";
+
+import { FaLinkedin } from "react-icons/fa";
+import { FaSquareGithub } from "react-icons/fa6";
+// import CV from "./CV";
+// import Contact from "./Contact";
 
 import { motion } from "framer-motion";
 
@@ -27,15 +30,13 @@ const Home = () => {
     setIsDragging(false);
   };
 
-  const [swiper, setSwiper] = useState(null);
-
   return (
     <motion.div
       initial={{ width: 0 }}
       animate={{ width: "100%" }}
       exit={{ x: window.innerWidth }}
     >
-      <section className="w-full h-screen relative">
+      <section className="home-sec w-full relative">
         <Suspense fallback={<Loading />}>
           <div className="w-1/3 h-1/6 absolute top-20 right-12 z-10 flex flex-col items-end pr-10">
             <ButtonGroup
@@ -43,27 +44,6 @@ const Home = () => {
               aria-label="Basic button group"
               size="large"
             >
-              {/* <Button
-                onClick={() => {
-                  swiper.slideTo(0);
-                }}
-              >
-                <span className="font-bold">About me</span>
-              </Button>
-              <Button
-                onClick={() => {
-                  swiper.slideTo(1);
-                }}
-              >
-                <span className="font-bold">CV</span>
-              </Button>
-              <Button
-                onClick={() => {
-                  swiper.slideTo(2);
-                }}
-              >
-                <span className="font-bold">Contact Me</span>
-              </Button> */}
               <Button
                 onClick={() => {
                   navigate("/Projects");
@@ -74,24 +54,6 @@ const Home = () => {
             </ButtonGroup>
           </div>
 
-          <div className="w-1/3 h-screen absolute left-12 top-6 right-0 z-10 flex flex-col items-start pl-10">
-            <Swiper
-              direction="vertical"
-              spaceBetween={50}
-              slidesPerView={1}
-              onSwiper={setSwiper}
-            >
-              <SwiperSlide>
-                <About />
-              </SwiperSlide>
-              <SwiperSlide>
-                <CV />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Contact />
-              </SwiperSlide>
-            </Swiper>
-          </div>
           <div
             className="homecanvas h-screen"
             onMouseDown={handleMouseDown}
@@ -106,14 +68,36 @@ const Home = () => {
                 <directionalLight position={[1, 1, 1]} intensity={5} />
                 <ambientLight intensity={2} />
                 <Cloud
-                  orbit={true}
-                  rot={[-Math.PI / 2, 0, 0]}
-                  pos={[0, 0, -12]}
-                  zoom={true}
+                  orbit={false}
+                  rot={[-Math.PI / 10, 1, 0]}
+                  pos={[-18, 4, 3]}
+                  zoom={false}
+                />
+                <Cloud
+                  orbit={false}
+                  rot={[-Math.PI / 20, 0, 0]}
+                  pos={[12, 0, -10]}
+                  zoom={false}
                 />
               </Suspense>
             </Canvas>
           </div>
+          <div className="w-1/2 h-screen absolute left-1/2 top-1/4 transform -translate-x-1/2 z-10 flex flex-col items-start pl-10">
+            <About />
+          </div>
+          <div className="absolute bottom-0 right-0 mb-4 mr-4">
+            <a href="https://www.linkedin.com/in/andre-raphael-lepardo-575562212">
+              <button className="mx-2 px-4 py-4 bg-gray-800 text-white rounded-md">
+                <FaLinkedin size={30} />
+              </button>
+            </a>
+            <a href="https://github.com/dot-Dre">
+              <button className="mx-2 px-4 py-4 bg-gray-800 text-white rounded-md">
+                <FaSquareGithub size={30} />
+              </button>
+            </a>
+          </div>
+          
         </Suspense>
       </section>
     </motion.div>

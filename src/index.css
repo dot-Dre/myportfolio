@@ -9,6 +9,10 @@
   --green-rgb: 125 161 35;
 }
 
+.home-sec {
+  overflow: hidden;
+}
+
 .projectcanvas {
   /* background-color: #ffffff; */
   background: linear-gradient(
@@ -23,12 +27,20 @@
 .homecanvas {
   /* background: linear-gradient(180deg, rgba(75,103,255,1) 0%, rgba(202,239,250,1) 67%, rgba(255,255,255,1) 68%);
    */
-  background: linear-gradient(
+  /* background: linear-gradient(
     180deg,
     rgba(31, 59, 128, 1) 0%,
     rgba(64, 109, 210, 1) 29%,
     rgba(202, 213, 250, 1) 68%,
     rgba(255, 255, 255, 1) 68%
+  ); */
+  background: rgb(31, 59, 128);
+  background: linear-gradient(
+    180deg,
+    rgba(31, 59, 128, 1) 0%,
+    rgba(64, 109, 210, 1) 29%,
+    rgba(202, 213, 250, 1) 68%,
+    rgba(255, 255, 255, 1) 100%
   );
   /* background-color: #ffffff; */
 }

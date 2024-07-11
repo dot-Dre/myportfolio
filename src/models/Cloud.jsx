@@ -32,7 +32,7 @@ const Cloud = ({orbit, props, pos, zoom, rot}) => {
       cloudRef.current.rotation.y += 0;
       // Wiggle effect
       const time = clock.getElapsedTime();
-      cloudRef.current.position.y = Math.sin(time * 2) * 0.5; // Adjust wiggle amplitude and speed as needed
+      cloudRef.current.position.y = Math.sin(time * 2) * 0.2; // Adjust wiggle amplitude and speed as needed
     }
   });
 

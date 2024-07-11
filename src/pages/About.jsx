@@ -7,7 +7,7 @@ import { FaSquareGithub } from "react-icons/fa6";
 const About = () => {
   return (
     <>
-      <div className="text-8xl pt-12 font-bold text-black">
+      <div className="text-9xl pt-12 font-bold text-black">
         <Typewriter
           onInit={(typewriter) => {
             typewriter
@@ -18,7 +18,7 @@ const About = () => {
           }}
         />
       </div>
-      <div className="text-2xl text-gray-900 pl-8 pt-11">
+      <div className="text-2xl text-gray-900 pt-11">
         I'm <span className="font-bold">Andre Lepardo</span>, a fourth year
         Software Engineering student @{" "}
         <a
@@ -29,18 +29,26 @@ const About = () => {
           <span className="font-bold">VUW</span>
         </a>
       </div>
-      <div className="text-lg text-gray-800 pl-8 pt-2">
-        During my studies I've had the chance to learn about a wide range of
-        fields in tech. Some of my favorites have been:
+      <div className="text-lg text-gray-900 pt-7">
+        My interests span across software development, cyber security, machine learning, and dev-ops. I a goal driven person and a dillegent learner. 
       </div>
-      <div className="text-lg text-gray-800 pl-11 pt-6">
+
+      <div className="text-lg text-gray-900 pt-7">
+        Outside of my studies I enjoy playing the piano and sports such as Basketball 🏀 and Volleyball 🏐. 
+      </div>
+      <div className="text-lg text-gray-800 pt-2">
+      
+      
+        
+      </div>
+      {/* <div className="text-lg text-gray-800 pt-6">
         <ul>
           <li>Cyber Security 🔒</li>
           <li>Machine Learning 🧠</li>
           <li>WebDev 🌐</li>
           <li>DevOps 🛠️</li>
         </ul>
-      </div>
+      </div> */}
       {/* <div className="text-lg text-gray-800 pl-8 pt-5">
             Outside of university some of my hobbies include:
           </div> */}
@@ -51,18 +59,6 @@ const About = () => {
               <li>Drawing ✏️</li>
             </ul>
           </div> */}
-      <div className="absolute bottom-20 pl-11 flex justify-start">
-        <a href="www.linkedin.com/in/andre-raphael-lepardo-575562212">
-          <button className="mx-2 px-4 py-4 bg-gray-800 text-white rounded-md">
-            <FaLinkedin size={30} />
-          </button>
-        </a>
-        <a href="https://github.com/dot-Dre">
-          <button className="mx-2 px-4 py-4 bg-gray-800 text-white rounded-md">
-            <FaSquareGithub size={30} />
-          </button>
-        </a>
-      </div>
     </>
   );
 };
