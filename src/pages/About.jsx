@@ -31,11 +31,11 @@ const About = () => {
         </div>
         <div className="text-lg text-gray-900 pt-7">
           My interests span across software development, cyber security, machine
-          learning, and dev-ops. I am goal driven person and a dillegent learner.
+          learning, and dev-ops. I am goal driven person and a diligent learner.
         </div>
 
         <div className="text-lg text-gray-900 pt-7">
-          Outside of my studies I enjoy playing the piano and sports such as
+          Outside of my studies I enjoy playing the piano 🎹 and sports such as
           Basketball 🏀 and Volleyball 🏐.
         </div>
 
