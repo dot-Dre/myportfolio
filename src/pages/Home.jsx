@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Canvas } from "@react-three/fiber";
 import Cloud from "../models/Cloud";
 import Loading from "../components/Loading";
+import Modal from "@mui/material/Modal";
 
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
@@ -13,13 +14,23 @@ import About from "./About";
 
 import { FaLinkedin } from "react-icons/fa";
 import { FaSquareGithub } from "react-icons/fa6";
-// import CV from "./CV";
-// import Contact from "./Contact";
+import cv from "../assets/cvV5.pdf";
 
 import { motion } from "framer-motion";
 
+import { pdfjs } from "react-pdf";
+import { Document, Page } from "react-pdf";
+
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  "pdfjs-dist/build/pdf.worker.min.mjs",
+  import.meta.url
+).toString();
+
 const Home = () => {
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const [isDragging, setIsDragging] = useState(false);
   const handleMouseDown = () => {
@@ -38,6 +49,27 @@ const Home = () => {
     >
       <section className="home-sec w-full relative">
         <Suspense fallback={<Loading />}>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <>
+              <Document file={cv}>
+                <Page
+                  pageNumber={1}
+                  renderAnnotationLayer={false}
+                  renderTextLayer={false}
+                />
+              </Document>
+            </>
+          </Modal>
           <div className="w-1/3 h-1/6 absolute top-20 right-12 z-10 flex flex-col items-end pr-10">
             <ButtonGroup
               variant="contained"
@@ -50,6 +82,13 @@ const Home = () => {
                 }}
               >
                 <span className="font-bold">Projects</span>
+              </Button>
+              <Button
+                onClick={() => {
+                  handleOpen();
+                }}
+              >
+                <span className="font-bold">CV</span>
               </Button>
             </ButtonGroup>
           </div>
@@ -97,7 +136,6 @@ const Home = () => {
               </button>
             </a>
           </div>
-          
         </Suspense>
       </section>
     </motion.div>
