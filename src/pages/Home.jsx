@@ -14,7 +14,7 @@ import About from "./About";
 
 import { FaLinkedin } from "react-icons/fa";
 import { FaSquareGithub } from "react-icons/fa6";
-import cv from "../assets/cvV5.pdf";
+import cv from "../assets/cvV6.pdf";
 
 import { motion } from "framer-motion";
 
