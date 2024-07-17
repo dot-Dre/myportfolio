@@ -1,7 +1,7 @@
 import whenPigsFly from "./assets/whenpigsfly.gif";
 import dungeongpt from "./assets/dungeongpt.gif";
 import buzzword from "./assets/buzzword.PNG";
-import ktour from "./asseets/ktour.PNG"
+import ktour from "./assets/ktour.PNG"
 import port from "./assets/this.PNG";
 
 const ProjectDetails = {
