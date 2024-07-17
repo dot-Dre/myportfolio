@@ -1,6 +1,7 @@
 import whenPigsFly from "./assets/whenpigsfly.gif";
 import dungeongpt from "./assets/dungeongpt.gif";
 import buzzword from "./assets/buzzword.PNG";
+import ktour from "./asseets/ktour.PNG"
 import port from "./assets/this.PNG";
 
 const ProjectDetails = {
@@ -17,6 +18,13 @@ const ProjectDetails = {
     img: dungeongpt,
     blurb:
       "A Web Application which procedurally generates Halloween themed dungeons for table top campaign games. I worked on it alongside a team of 5 other people where I worked on creating the front-end UI and some APIs on the backend.",
+  },
+  Ktourvis: {
+    name: "Knight's Tour Visualizer ♞",
+    tags: ["React", "React Three Fiber", "React-Spring"],
+    img: ktour,
+    blurb:
+      "A 3D visualization of the Knight's Tour problem from chess",
   },
   BuzzWord: {
     name: "Buzzword 🐝🔤",
