@@ -75,6 +75,14 @@ const Projects = () => {
             </div>
             <div className="pt-10">
               <ProjectCards
+                tags={ProjectDetails.Ktourvis.tags}
+                blurb={ProjectDetails.Ktourvis.blurb}
+                name={ProjectDetails.Ktourvis.name}
+                img={ProjectDetails.Ktourvis.img}
+              />
+            </div>
+            <div className="pt-10">
+              <ProjectCards
                 tags={ProjectDetails.BuzzWord.tags}
                 blurb={ProjectDetails.BuzzWord.blurb}
                 name={ProjectDetails.BuzzWord.name}
